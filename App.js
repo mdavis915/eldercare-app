@@ -1,25 +1,20 @@
-// App.js
-import React from 'react';
-import { SafeAreaProvider } from 'react-native-safe-area-context';
-import { NavigationContainer } from '@react-navigation/native';
-import { createStackNavigator } from '@react-navigation/stack';
-
-import { RootNavigator } from './navigation/RootNavigator'; // Your existing navigator
-import HealthTrackingScreen from './HealthTrackingScreen'; // Import the new screen
+import React from "react";
+import { NavigationContainer } from "@react-navigation/native";
+import { createStackNavigator } from "@react-navigation/stack";
+import HomeScreen from "./screens/HomeScreen";
+// import HealthTrackingScreen from "./screens/HealthTrackingScreen";
+// import TransportationScreen from "./screens/TransportationScreen";
 
 const Stack = createStackNavigator();
 
-const App = () => {
+export default function App() {
   return (
-    <SafeAreaProvider>
-      <NavigationContainer>
-        <Stack.Navigator initialRouteName="Home">
-          <Stack.Screen name="Home" component={RootNavigator} />
-          <Stack.Screen name="Health Tracking" component={HealthTrackingScreen} />
-        </Stack.Navigator>
-      </NavigationContainer>
-    </SafeAreaProvider>
+    <NavigationContainer>
+      <Stack.Navigator>
+        <Stack.Screen name="Home" component={HomeScreen} />
+        {/* <Stack.Screen name="HealthTracking" component={HealthTrackingScreen} />
+        <Stack.Screen name="Transportation" component={TransportationScreen} /> */}
+      </Stack.Navigator>
+    </NavigationContainer>
   );
-};
-
-export default App;
+}
